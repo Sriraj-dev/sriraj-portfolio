@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "name": "Sriraj",
+    "title": "Software Developer",
+    "description": "Portfolio of Sriraj — Software Developer & Analyst at AQR Capital, IIT BHU 2024 graduate.",
+    "keywords": ["software developer", "IIT BHU", "AQR Capital", "full stack", "Python", "TypeScript"],
+    "avatar": "/assets/avatar.jpg",
+    "resumeUrl": "/assets/resume.pdf"
+  },
+  "intro": {
+    "greeting": "Hi, I'm",
+    "name": "Sriraj",
+    "roles": ["Software Developer", "Analyst @ AQR Capital", "IIT BHU '24", "Builder"],
+    "bio": "I'm a software developer and analyst at AQR Capital, passionate about building products that solve real problems. I graduated from IIT BHU in 2024 and love working at the intersection of technology and finance.",
+    "cta": { "label": "View My Work", "href": "#projects" }
+  },
+  "skills": {
+    "languages": ["Python", "TypeScript", "JavaScript", "Go", "SQL", "C++"],
+    "frameworks": ["Next.js", "React", "FastAPI", "Django", "Node.js", "Express"],
+    "tools": ["Docker", "AWS", "PostgreSQL", "Redis", "Git", "Linux", "Kubernetes"]
+  },
+  "saasProducts": [
+    {
+      "id": "product-1",
+      "name": "SaaS Product Alpha",
+      "description": "A placeholder SaaS product description. This will be replaced with your actual product details.",
+      "image": "",
+      "url": "https://example.com",
+      "tags": ["Next.js", "AI", "SaaS"],
+      "status": "live"
+    },
+    {
+      "id": "product-2",
+      "name": "SaaS Product Beta",
+      "description": "Another placeholder product showcasing what you've built. Add your real product details here.",
+      "image": "",
+      "url": "https://example.com",
+      "tags": ["Python", "FastAPI", "ML"],
+      "status": "beta"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "Project Alpha",
+      "description": "A featured project showcasing your engineering skills. Describe what problem it solves and the tech choices you made.",
+      "image": "",
+      "githubUrl": "https://github.com/Sriraj-dev",
+      "demoUrl": "",
+      "tags": ["Python", "ML", "FastAPI", "PostgreSQL"],
+      "featured": true
+    },
+    {
+      "id": "project-2",
+      "title": "Project Beta",
+      "description": "Another project highlighting your work. This is a placeholder — add real project details.",
+      "image": "",
+      "githubUrl": "https://github.com/Sriraj-dev",
+      "demoUrl": "",
+      "tags": ["TypeScript", "Next.js", "Tailwind"],
+      "featured": true
+    },
+    {
+      "id": "project-3",
+      "title": "Project Gamma",
+      "description": "A supporting project showcasing breadth of your experience.",
+      "image": "",
+      "githubUrl": "https://github.com/Sriraj-dev",
+      "demoUrl": "",
+      "tags": ["Go", "Docker", "AWS"],
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "company": "AQR Capital Management",
+      "role": "Analyst",
+      "startDate": "2024-07",
+      "endDate": null,
+      "logo": "",
+      "description": "Working as an Analyst at one of the world's leading quantitative investment firms.",
+      "highlights": [
+        "Building and maintaining internal software systems",
+        "Working at the intersection of technology and quantitative finance",
+        "Collaborating with cross-functional teams on large-scale systems"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "IIT BHU (Varanasi)",
+      "degree": "B.Tech",
+      "field": "Computer Science & Engineering",
+      "startYear": 2020,
+      "endYear": 2024,
+      "logo": "",
+      "highlights": [
+        "Graduated from one of India's premier technical institutions",
+        "Strong foundation in algorithms, data structures, and systems programming"
+      ]
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Sample Blog Post Title",
+      "summary": "A placeholder blog post. Add your actual blog posts with links to Medium, Hashnode, or wherever you publish.",
+      "url": "https://medium.com",
+      "platform": "medium",
+      "publishedAt": "2025-01-01",
+      "tags": ["Technology", "Engineering"]
+    }
+  ],
+  "contact": {
+    "email": "psriraj1902@gmail.com",
+    "socials": [
+      { "platform": "github", "label": "Sriraj-dev", "url": "https://github.com/Sriraj-dev" },
+      { "platform": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/sriraj" },
+      { "platform": "twitter", "label": "Twitter", "url": "https://twitter.com/sriraj" }
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ───────────────────────────────────────── */
+:root {
+  --bg-primary:        #080810;
+  --bg-surface:        #0e0e18;
+  --bg-elevated:       #14141f;
+  --border-color:      #1e1e2e;
+  --border-bright:     #2e2e45;
+  --accent:            #6366f1;
+  --accent-secondary:  #8b5cf6;
+  --accent-glow:       rgba(99, 102, 241, 0.18);
+  --text-primary:      #e8eaf0;
+  --text-muted:        #5a5f7a;
+  --text-dim:          #3a3f56;
+}
+
+/* ─── Tailwind v4 Theme ───────────────────────────────────── */
+@theme inline {
+  --color-bg-primary:       var(--bg-primary);
+  --color-bg-surface:       var(--bg-surface);
+  --color-bg-elevated:      var(--bg-elevated);
+  --color-border-color:     var(--border-color);
+  --color-accent:           var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-text-primary:     var(--text-primary);
+  --color-text-muted:       var(--text-muted);
+
+  --font-display: var(--font-syne);
+  --font-sans:    var(--font-geist-sans);
+  --font-mono:    var(--font-geist-mono);
+}
+
+/* ─── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 4px; }
+::-webkit-scrollbar-track        { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb        { background: var(--border-bright); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--accent); }
+
+/* ─── Dot-grid Hero Background ────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    var(--border-bright) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* ─── Gradient Text ───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #a5b4fc 0%, var(--accent) 35%, var(--accent-secondary) 70%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card Glow on Hover ──────────────────────────────────── */
+.card-glow {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.22s ease;
+}
+.card-glow:hover {
+  border-color: rgba(99, 102, 241, 0.45) !important;
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.12),
+    0 8px 32px rgba(99, 102, 241, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ─── Cursor Blink ─────────────────────────────────────────── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* ─── Section Fade-edge (top/bottom gradient masks) ──────── */
+.section-fade-top {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%);
+  mask-image:         linear-gradient(to bottom, transparent 0%, black 12%);
+}
+
+/* ─── Accent underline for section headings ──────────────── */
+@keyframes expand-width {
+  from { width: 0; }
+  to   { width: 3rem; }
+}
+.accent-line {
+  display: block;
+  height: 2px;
+  width: 3rem;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+  border-radius: 1px;
+}
