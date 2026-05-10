@@ -12,7 +12,7 @@
     "name": "Sriraj",
     "roles": ["Software Developer", "Analyst @ AQR Capital", "IIT BHU '24", "Builder"],
     "bio": "I'm a software developer and analyst at AQR Capital, passionate about building products that solve real problems. I graduated from IIT BHU in 2024 and love working at the intersection of technology and finance.",
-    "cta": { "label": "View My Work", "href": "#projects" }
+    "cta": { "label": "View My Work", "href": "#products" }
   },
   "skills": {
     "languages": ["Python", "TypeScript", "JavaScript", "Go", "SQL", "C++"],
@@ -22,21 +22,33 @@
   "saasProducts": [
     {
       "id": "product-1",
-      "name": "SaaS Product Alpha",
-      "description": "A placeholder SaaS product description. This will be replaced with your actual product details.",
-      "image": "",
+      "name": "Synaptic AI",
+      "description": "Add your product description here — what problem it solves, who uses it, and what makes it special.",
+      "image": "/assets/products/synapticAI.JPG",
+      "videoUrl": "https://www.youtube.com/watch?v=zNKJIEqw-gE",
       "url": "https://example.com",
       "tags": ["Next.js", "AI", "SaaS"],
       "status": "live"
     },
     {
       "id": "product-2",
-      "name": "SaaS Product Beta",
-      "description": "Another placeholder product showcasing what you've built. Add your real product details here.",
-      "image": "",
+      "name": "MarketPulse AI",
+      "description": "Add your product description here — what problem it solves, who uses it, and what makes it special.",
+      "image": "/assets/products/marketPulseAI.jpg",
+      "videoUrl": "",
       "url": "https://example.com",
       "tags": ["Python", "FastAPI", "ML"],
-      "status": "beta"
+      "status": "live"
+    },
+    {
+      "id": "product-3",
+      "name": "C2V",
+      "description": "Add your product description here — what problem it solves, who uses it, and what makes it special.",
+      "image": "/assets/products/c2v.jpg",
+      "videoUrl": "https://www.youtube.com/watch?v=nBoUAjdI_Vs",
+      "url": "https://example.com",
+      "tags": ["Python", "FastAPI", "ML"],
+      "status": "live"
     }
   ],
   "projects": [

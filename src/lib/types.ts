@@ -26,6 +26,7 @@ export interface SaasProduct {
   name: string;
   description: string;
   image: string;
+  videoUrl?: string;
   url: string;
   tags: string[];
   status: "live" | "beta" | "building";
