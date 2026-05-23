@@ -4,17 +4,15 @@ interface BadgeProps {
 }
 
 const variants = {
-  default: "bg-[var(--bg-elevated)] text-[var(--text-muted)] border border-[var(--border-color)]",
-  accent:  "bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/20",
-  success: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
-  warning: "bg-amber-500/10  text-amber-400  border border-amber-500/20",
+  default: "text-[var(--text-muted)] border border-[var(--border-color)] bg-[var(--bg-elevated)]",
+  accent:  "text-[var(--accent)] border border-[var(--accent)]/25 bg-[var(--accent)]/5",
+  success: "text-[var(--green)] border border-[var(--green)]/25 bg-[var(--green)]/5",
+  warning: "text-[var(--amber)] border border-[var(--amber)]/25 bg-[var(--amber)]/5",
 };
 
 export default function Badge({ label, variant = "default" }: BadgeProps) {
   return (
-    <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium ${variants[variant]}`}
-    >
+    <span className={`inline-flex items-center px-2 py-0.5 text-[10px] font-mono tracking-widest uppercase rounded-none ${variants[variant]}`}>
       {label}
     </span>
   );

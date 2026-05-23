@@ -190,7 +190,22 @@
   }
 ],
   "blogs": [
-
+    {
+      "title": "Building an AI Agent with Long-Term Memory: Lessons from Synaptic AI",
+      "summary": "How I architected a personal AI second brain using LangGraph, RAG, and vector search — and what I'd do differently if I were starting over today.",
+      "url": "",
+      "platform": "medium",
+      "publishedAt": "2025-02-14",
+      "tags": ["AI", "LangGraph", "RAG", "SaaS"]
+    },
+    {
+      "title": "Automating My Instagram With AI: From Experiment to Production Pipeline",
+      "summary": "What started as a weekend curiosity turned into a fully autonomous content engine that published, measured, and iterated — without me touching it for weeks.",
+      "url": "",
+      "platform": "medium",
+      "publishedAt": "2024-11-03",
+      "tags": ["Automation", "Python", "OpenAI", "Solopreneur"]
+    }
   ],
   "sectionSubtitles": {
     "skills": {

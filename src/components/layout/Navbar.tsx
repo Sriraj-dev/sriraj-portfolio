@@ -6,16 +6,15 @@ import { Menu, X } from "lucide-react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 const NAV_LINKS = [
-  { label: "About",      href: "#hero" },
-  { label: "Skills",     href: "#skills" },
-  { label: "Products",   href: "#products" },
-  { label: "Projects",   href: "#projects" },
-  { label: "Background", href: "#background" },
-  { label: "Blogs",      href: "#blogs" },
-  { label: "Contact",    href: "#contact" },
+  { label: "ABOUT",      href: "#hero",       num: "§0" },
+  { label: "SKILLS",     href: "#skills",     num: "§1" },
+  { label: "PRODUCTS",   href: "#products",   num: "§2" },
+  { label: "PROJECTS",   href: "#projects",   num: "§3" },
+  { label: "BACKGROUND", href: "#background", num: "§4" },
+  { label: "WRITING",    href: "#blogs",      num: "§5" },
+  { label: "CONTACT",    href: "#contact",    num: "§6" },
 ];
 
-// Logo covers "About", Contact is a separate CTA — pill shows the rest
 const PILL_LINKS = NAV_LINKS.filter(
   (l) => l.href !== "#hero" && l.href !== "#contact"
 );
@@ -35,69 +34,64 @@ export default function Navbar({ name }: { name: string }) {
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const id = href.replace("#", "");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-
+      <nav
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-13 flex items-center justify-between font-mono text-[10px] tracking-widest transition-all duration-300 ${
+          scrolled
+            ? "bg-[rgba(7,17,30,0.94)] backdrop-blur-xl border-b border-[var(--border-color)]"
+            : "border-b border-[var(--border-color)]/50"
+        }`}
+      >
         {/* Logo */}
         <button
           onClick={() => handleNavClick("#hero")}
-          className="font-mono text-sm font-bold tracking-wider text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
-          style={{ fontFamily: "var(--font-syne), sans-serif" }}
+          className="flex items-center gap-2 uppercase text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors"
         >
-          <span className="text-[var(--accent)]">&lt;</span>
-          {name}
-          <span className="text-[var(--accent)]"> /&gt;</span>
+          <span className="text-[var(--accent)] opacity-70">▶</span>
+          <span>{name.toUpperCase()}</span>
+          <span className="text-[var(--text-dim)] hidden sm:inline">· SPEC</span>
         </button>
 
-        {/* Floating pill — desktop only */}
-        <div
-          className={`hidden md:block rounded-full transition-all duration-500 ${
-            scrolled
-              ? "border border-[var(--border-color)] bg-[var(--bg-primary)]/70 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.4),0_0_0_1px_rgba(99,102,241,0.07)]"
-              : "border border-transparent"
-          }`}
-        >
-          <ul className="flex items-center gap-0.5 px-2 py-1.5">
-            {PILL_LINKS.map((link) => {
-              const id = link.href.replace("#", "");
-              const isActive = activeId === id;
-              return (
-                <li key={link.href} className="relative">
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className={`relative px-3 py-1.5 text-sm rounded-full transition-colors duration-200 ${
-                      isActive
-                        ? "text-[var(--text-primary)]"
-                        : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
-                    }`}
-                  >
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-pill"
-                        className="absolute inset-0 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-bright)]"
-                        transition={{ type: "spring", stiffness: 380, damping: 28 }}
-                      />
-                    )}
-                    <span className="relative z-10">{link.label}</span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+        {/* Desktop nav links */}
+        <div className="hidden md:flex items-center gap-0.5">
+          {PILL_LINKS.map((link) => {
+            const id = link.href.replace("#", "");
+            const isActive = activeId === id;
+            return (
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`relative px-3 py-3.5 text-[10px] tracking-widest uppercase transition-colors ${
+                  isActive
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-indicator"
+                    className="absolute inset-x-2 bottom-0 h-px bg-[var(--accent)]"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {link.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Right: Contact CTA + mobile toggle */}
+        {/* Right: contact + mobile toggle */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => handleNavClick("#contact")}
-            className="hidden md:block px-4 py-1.5 rounded-full text-sm font-medium border border-[var(--border-bright)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 hover:shadow-[0_0_16px_rgba(99,102,241,0.25)]"
+            className="hidden md:flex items-center gap-2 uppercase text-[var(--accent)] border border-[var(--accent)]/30 px-3 py-1.5 hover:bg-[var(--accent)]/5 transition-colors"
           >
-            Contact
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] scan-pulse" />
+            CONTACT
           </button>
 
           <button
@@ -105,7 +99,7 @@ export default function Navbar({ name }: { name: string }) {
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X size={17} /> : <Menu size={17} />}
           </button>
         </div>
       </nav>
@@ -114,13 +108,13 @@ export default function Navbar({ name }: { name: string }) {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden bg-[var(--bg-surface)]/95 backdrop-blur-xl border-b border-[var(--border-color)]"
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.18 }}
+            className="md:hidden bg-[rgba(7,17,30,0.97)] backdrop-blur-xl border-b border-[var(--border-color)]"
           >
-            <ul className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+            <ul className="max-w-7xl mx-auto px-4 py-3 flex flex-col font-mono text-[10px] tracking-widest">
               {NAV_LINKS.map((link) => {
                 const id = link.href.replace("#", "");
                 const isActive = activeId === id;
@@ -128,15 +122,13 @@ export default function Navbar({ name }: { name: string }) {
                   <li key={link.href}>
                     <button
                       onClick={() => handleNavClick(link.href)}
-                      className={`w-full text-left text-sm px-3 py-2 rounded-md transition-colors ${
+                      className={`w-full text-left flex items-center gap-4 px-3 py-2.5 uppercase transition-colors border-l ${
                         isActive
-                          ? "text-[var(--accent)] bg-[var(--bg-elevated)] font-medium"
-                          : "text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]"
+                          ? "text-[var(--accent)] border-[var(--accent)] bg-[var(--accent)]/5"
+                          : "text-[var(--text-muted)] border-transparent hover:text-[var(--text-primary)]"
                       }`}
                     >
-                      {isActive && (
-                        <span className="font-mono text-[var(--accent)] mr-2">›</span>
-                      )}
+                      <span className="text-[var(--text-dim)] w-5">{link.num}</span>
                       {link.label}
                     </button>
                   </li>
