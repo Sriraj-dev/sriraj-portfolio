@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Download, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import type { Intro, Meta } from "@/lib/types";
@@ -10,9 +10,10 @@ import type { Intro, Meta } from "@/lib/types";
 interface HeroProps {
   intro: Intro;
   meta: Meta;
+  linkedinUrl?: string;
 }
 
-export default function Hero({ intro, meta }: HeroProps) {
+export default function Hero({ intro, meta, linkedinUrl }: HeroProps) {
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -102,7 +103,7 @@ export default function Hero({ intro, meta }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.75, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <CTAButtons intro={intro} meta={meta} align="center" />
+          <CTAButtons intro={intro} meta={meta} align="center" linkedinUrl={linkedinUrl} />
         </motion.div>
       </div>
 
@@ -169,7 +170,7 @@ export default function Hero({ intro, meta }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <CTAButtons intro={intro} meta={meta} align="left" />
+            <CTAButtons intro={intro} meta={meta} align="left" linkedinUrl={linkedinUrl} />
           </motion.div>
         </div>
 
@@ -263,10 +264,12 @@ function CTAButtons({
   intro,
   meta,
   align,
+  linkedinUrl,
 }: {
   intro: Intro;
   meta: Meta;
   align: "center" | "left";
+  linkedinUrl?: string;
 }) {
   const justifyClass = align === "center" ? "justify-center" : "justify-start";
   return (
@@ -291,15 +294,15 @@ function CTAButtons({
         </span>
       </button>
 
-      {meta.resumeUrl && (
+      {linkedinUrl && (
         <Link
-          href={meta.resumeUrl}
+          href={linkedinUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3.5 rounded-lg border border-[var(--border-bright)] text-[var(--text-primary)] text-sm font-semibold hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 inline-flex items-center justify-center gap-2 hover:shadow-[0_0_16px_rgba(99,102,241,0.12)]"
         >
-          <Download size={14} />
-          Resume
+          Contact
+          <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       )}
     </>

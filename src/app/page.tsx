@@ -17,7 +17,11 @@ export default function Home() {
     <>
       <Navbar name={data.meta.name} />
       <main>
-        <Hero intro={data.intro} meta={data.meta} />
+        <Hero
+          intro={data.intro}
+          meta={data.meta}
+          linkedinUrl={data.contact.socials.find((s) => s.platform === "linkedin")?.url}
+        />
         <Skills skills={data.skills} subtitle={data.sectionSubtitles.skills} />
         <SaasProducts products={data.saasProducts} subtitle={data.sectionSubtitles.products} />
         <Background experience={data.experience} education={data.education} subtitle={data.sectionSubtitles.background} />
