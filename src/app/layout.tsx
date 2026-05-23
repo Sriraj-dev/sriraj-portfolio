@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google";
+import { Geist, Geist_Mono, Syne, Outfit } from "next/font/google";
 import "./globals.css";
 import profile from "@/data/profile.json";
 
@@ -19,6 +19,12 @@ const syne = Syne({
   weight: ["700", "800"],
 });
 
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   title: `${profile.meta.name} — ${profile.meta.title}`,
   description: profile.meta.description,
@@ -31,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${outfit.variable}`}
     >
       <body className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased">
         {children}

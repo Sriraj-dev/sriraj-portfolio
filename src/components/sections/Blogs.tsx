@@ -2,10 +2,11 @@ import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
-import type { BlogPost } from "@/lib/types";
+import type { BlogPost, SectionSubtitle } from "@/lib/types";
 
 interface BlogsProps {
   blogs: BlogPost[];
+  subtitle?: SectionSubtitle;
 }
 
 function formatDate(s: string): string {
@@ -23,14 +24,14 @@ const platformLabel: Record<string, string> = {
   devto:    "Dev.to",
 };
 
-export default function Blogs({ blogs }: BlogsProps) {
+export default function Blogs({ blogs, subtitle }: BlogsProps) {
   if (blogs.length === 0) return null;
 
   return (
     <section id="blogs" className="py-24 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <AnimatedSection>
-          <SectionHeading title="Writing" subtitle="Blogs & articles" />
+          <SectionHeading title="Writing" description={subtitle} />
         </AnimatedSection>
 
         <div className="space-y-3">

@@ -83,6 +83,20 @@ export interface Contact {
   socials: Social[];
 }
 
+export interface SectionSubtitle {
+  muted: string;
+  highlight: string;
+}
+
+export interface SectionSubtitles {
+  skills: SectionSubtitle;
+  products: SectionSubtitle;
+  projects: SectionSubtitle;
+  background: SectionSubtitle;
+  blogs: SectionSubtitle;
+  contact: SectionSubtitle;
+}
+
 export interface Profile {
   meta: Meta;
   intro: Intro;
@@ -93,4 +107,5 @@ export interface Profile {
   education: Education[];
   blogs: BlogPost[];
   contact: Contact;
+  sectionSubtitles: SectionSubtitles;
 }

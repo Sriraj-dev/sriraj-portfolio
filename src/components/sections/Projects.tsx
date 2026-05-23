@@ -3,23 +3,24 @@ import { FaGithub } from "react-icons/fa";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
-import type { Project } from "@/lib/types";
+import type { Project, SectionSubtitle } from "@/lib/types";
 
 interface ProjectsProps {
   projects: Project[];
+  subtitle?: SectionSubtitle;
 }
 
-export default function Projects({ projects }: ProjectsProps) {
+export default function Projects({ projects, subtitle }: ProjectsProps) {
   if (projects.length === 0) return null;
 
   const featured = projects.filter((p) => p.featured);
   const rest     = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6">
+    <section id="projects" className="py-24 px-4 sm:px-6 bg-[var(--bg-surface)]">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <SectionHeading title="Projects" subtitle="What I've been building" />
+          <SectionHeading title="Projects" description={subtitle} />
         </AnimatedSection>
 
         {featured.length > 0 && (

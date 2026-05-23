@@ -36,6 +36,8 @@
 
 html { scroll-behavior: smooth; }
 
+button, a, [role="button"] { cursor: pointer; }
+
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -94,6 +96,16 @@ body {
 .section-fade-top {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%);
   mask-image:         linear-gradient(to bottom, transparent 0%, black 12%);
+}
+
+/* ─── Marquee (Skills section) ───────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
 }
 
 /* ─── Accent underline for section headings ──────────────── */

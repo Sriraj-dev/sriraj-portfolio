@@ -18,12 +18,12 @@ export default function Home() {
       <Navbar name={data.meta.name} />
       <main>
         <Hero intro={data.intro} meta={data.meta} />
-        <Skills skills={data.skills} />
-        <SaasProducts products={data.saasProducts} />
-        <Projects projects={data.projects} />
-        <Background experience={data.experience} education={data.education} />
-        <Blogs blogs={data.blogs} />
-        <Contact contact={data.contact} />
+        <Skills skills={data.skills} subtitle={data.sectionSubtitles.skills} />
+        <SaasProducts products={data.saasProducts} subtitle={data.sectionSubtitles.products} />
+        <Background experience={data.experience} education={data.education} subtitle={data.sectionSubtitles.background} />
+        <Projects projects={data.projects} subtitle={data.sectionSubtitles.projects} />
+        <Blogs blogs={data.blogs} subtitle={data.sectionSubtitles.blogs} />
+        <Contact contact={data.contact} subtitle={data.sectionSubtitles.contact} />
       </main>
       <Footer name={data.meta.name} />
     </>

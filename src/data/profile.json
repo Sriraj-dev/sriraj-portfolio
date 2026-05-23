@@ -4,130 +4,227 @@
     "title": "Software Developer",
     "description": "Portfolio of Sriraj — Software Developer & Analyst at AQR Capital, IIT BHU 2024 graduate.",
     "keywords": ["software developer", "IIT BHU", "AQR Capital", "full stack", "Python", "TypeScript"],
-    "avatar": "/assets/avatar.jpg",
-    "resumeUrl": "/assets/resume.pdf"
+    "avatar": "/assets/profile_dp_1.JPG",
+    "resumeUrl": "/assets/Sriraj_IITBHU.pdf"
   },
   "intro": {
-    "greeting": "Hi, I'm",
-    "name": "Sriraj",
-    "roles": ["Software Developer", "Analyst @ AQR Capital", "IIT BHU '24", "Builder"],
-    "bio": "I'm a software developer and analyst at AQR Capital, passionate about building products that solve real problems. I graduated from IIT BHU in 2024 and love working at the intersection of technology and finance.",
-    "cta": { "label": "View My Work", "href": "#products" }
+  "greeting": "Hi, I'm",
+  "name": "Sriraj",
+  "roles": [
+    "Software Developer",
+    "AI Engineer",
+    "SDE @ AQR Capital",
+    "Solopreneur",
+    "IIT BHU '24"
+  ],
+  "bio": "I'm a software developer, builder, and endlessly curious learner who loves turning ideas into real products.\n\nI graduated from IIT (BHU) Varanasi in 2024, but my journey into technology started much earlier, with a simple habit of exploring anything that looked interesting. Over the years, that curiosity has taken me through game development, mobile apps, web applications, machine learning, AI-powered products, automation systems, and countless side projects that began as late-night experiments.\n\nWhat excites me most is turning ideas into products that people genuinely find useful. There's something special about starting with a simple thought, gradually shaping it into a working product, and eventually seeing people use it in their daily workflow. Having built and shipped products used by hundreds of users, I've come to appreciate that the most rewarding part of engineering isn't just writing code, it's creating something that makes a small difference in someone's day.",
+  "cta": {
+    "label": "View My Work",
+    "href": "#products"
+  }
   },
   "skills": {
-    "languages": ["Python", "TypeScript", "JavaScript", "Go", "SQL", "C++"],
-    "frameworks": ["Next.js", "React", "FastAPI", "Django", "Node.js", "Express"],
-    "tools": ["Docker", "AWS", "PostgreSQL", "Redis", "Git", "Linux", "Kubernetes"]
+  "languages": [
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "Java",
+    "C#",
+    "C++",
+    "SQL"
+  ],
+  "frameworks": [
+    "Next.js",
+    "React",
+    "Node.js",
+    "Express",
+    ".NET Core",
+    "Spring Boot",
+    "Angular",
+    "Hono"
+  ],
+  "tools": [
+    "AWS",
+    "Docker",
+    "Redis",
+    "PostgreSQL",
+    "MongoDB",
+    "LangChain",
+    "LangGraph",
+    "OpenAI",
+    "Git",
+    "Linux",
+    "CI/CD"
+  ]
   },
   "saasProducts": [
-    {
-      "id": "product-1",
-      "name": "Synaptic AI",
-      "description": "Add your product description here — what problem it solves, who uses it, and what makes it special.",
-      "image": "/assets/products/synapticAI.JPG",
-      "videoUrl": "https://www.youtube.com/watch?v=zNKJIEqw-gE",
-      "url": "https://example.com",
-      "tags": ["Next.js", "AI", "SaaS"],
-      "status": "live"
-    },
-    {
-      "id": "product-2",
-      "name": "MarketPulse AI",
-      "description": "Add your product description here — what problem it solves, who uses it, and what makes it special.",
-      "image": "/assets/products/marketPulseAI.jpg",
-      "videoUrl": "",
-      "url": "https://example.com",
-      "tags": ["Python", "FastAPI", "ML"],
-      "status": "live"
-    },
-    {
-      "id": "product-3",
-      "name": "C2V",
-      "description": "Add your product description here — what problem it solves, who uses it, and what makes it special.",
-      "image": "/assets/products/c2v.jpg",
-      "videoUrl": "https://www.youtube.com/watch?v=nBoUAjdI_Vs",
-      "url": "https://example.com",
-      "tags": ["Python", "FastAPI", "ML"],
-      "status": "live"
-    }
-  ],
+  {
+    "id": "product-1",
+    "name": "Synaptic AI",
+    "description": "A personal AI-powered second brain that captures all your online learnings and remembers it for you. Users can interact with their agent through both a Chrome extension and a web dashboard using text or voice conversations. Built around an AI agent with long-term memory using RAG, vector search, and autonomous workflows. Designed to make knowledge capture effortless and retrieval intelligent.",
+    "image": "/assets/products/synapticAI.JPG",
+    "videoUrl": "",
+    "url": "https://synapticai.app/",
+    "tags": [
+      "LangGraph",
+      "RAG",
+      "Node.js",
+      "Redis",
+      "PostgreSQL",
+      "Next.js"
+    ],
+    "status": "live"
+  },
+  {
+    "id": "product-2",
+    "name": "Operon",
+    "description": "A WhatsApp-first order automation platform for local restaurants. Customers can place orders directly through WhatsApp while restaurants automatically manage ordering, status updates, payments, reviews, customer communication, and analytics. Includes a live conversation monitor, workflow automation engine, and sales dashboard designed to reduce manual operations for small businesses.",
+    "image": "/assets/products/c2v.jpg",
+    "videoUrl": "",
+    "url": "https://www.youtube.com/watch?v=nBoUAjdI_Vs&t=1s",
+    "tags": [
+      "Bun.js",
+      "Redis",
+      "MongoDB",
+      "WhatsApp",
+      "Analytics"
+    ],
+    "status": "live"
+  },
+  {
+    "id": "product-3",
+    "name": "MarketPulse AI",
+    "description": "An AI-powered market intelligence platform that aggregates financial news, analyzes sentiment, and delivers personalized daily and weekly market insights. Built using a serverless AWS architecture to process real-time news streams and generate concise, actionable summaries through web and WhatsApp channels.",
+    "image": "/assets/products/marketPulseAI.jpg",
+    "videoUrl": "",
+    "url": "https://marketpulseai.in",
+    "tags": [
+      "Python",
+      "AWS Lambda",
+      "SQS",
+      "OpenAI",
+      "Serverless"
+    ],
+    "status": "beta"
+  }
+],
   "projects": [
-    {
-      "id": "project-1",
-      "title": "Project Alpha",
-      "description": "A featured project showcasing your engineering skills. Describe what problem it solves and the tech choices you made.",
-      "image": "",
-      "githubUrl": "https://github.com/Sriraj-dev",
-      "demoUrl": "",
-      "tags": ["Python", "ML", "FastAPI", "PostgreSQL"],
-      "featured": true
-    },
-    {
-      "id": "project-2",
-      "title": "Project Beta",
-      "description": "Another project highlighting your work. This is a placeholder — add real project details.",
-      "image": "",
-      "githubUrl": "https://github.com/Sriraj-dev",
-      "demoUrl": "",
-      "tags": ["TypeScript", "Next.js", "Tailwind"],
-      "featured": true
-    },
-    {
-      "id": "project-3",
-      "title": "Project Gamma",
-      "description": "A supporting project showcasing breadth of your experience.",
-      "image": "",
-      "githubUrl": "https://github.com/Sriraj-dev",
-      "demoUrl": "",
-      "tags": ["Go", "Docker", "AWS"],
-      "featured": false
-    }
+  {
+    "id": "project-1",
+    "title": "Prastuti Mobile App",
+    "description": "Led the development of the official mobile application for Prastuti, the annual technical festival of IIT BHU. Built features including event registrations, schedules, participant management, real-time notifications, and event tracking. The application streamlined event operations and achieved strong adoption across the institute community.",
+    "image": "",
+    "githubUrl": "",
+    "demoUrl": "",
+    "tags": [
+      "Flutter",
+      "Mobile Development",
+      "Firebase",
+      "Product Engineering"
+    ],
+    "featured": true
+  },
+  {
+    "id": "project-2",
+    "title": "EcoWise",
+    "description": "Contributed to the development of a startup platform focused on sustainability by enabling users to sell recyclable products, e-waste, and unused items in exchange for eco-coins. These rewards could later be redeemed for vouchers or cash. Built and maintained core frontend experiences using Flutter.",
+    "image": "",
+    "githubUrl": "",
+    "demoUrl": "",
+    "tags": [
+      "Flutter",
+      "Startup",
+      "Mobile App",
+      "Sustainability"
+    ],
+    "featured": true
+  },
+  {
+  "id": "project-3",
+  "title": "Autonomous Instagram Content Engine",
+  "description": "Built an AI-powered Instagram automation system that generated content, created captions, and published posts automatically without manual intervention. The system analyzed engagement metrics such as impressions and interactions, using those insights to continuously refine future content generation strategies. While it started as an experiment to explore content automation and feedback-driven optimization, it evolved into a fully automated pipeline that was incredibly rewarding to watch operate end-to-end in production.",
+  "image": "",
+  "githubUrl": "",
+  "demoUrl": "",
+  "tags": [
+    "Python",
+    "OpenAI",
+    "Instagram API",
+    "Automation",
+    "Analytics"
   ],
-  "experience": [
-    {
-      "company": "AQR Capital Management",
-      "role": "Analyst",
-      "startDate": "2024-07",
-      "endDate": null,
-      "logo": "",
-      "description": "Working as an Analyst at one of the world's leading quantitative investment firms.",
-      "highlights": [
-        "Building and maintaining internal software systems",
-        "Working at the intersection of technology and quantitative finance",
-        "Collaborating with cross-functional teams on large-scale systems"
-      ]
-    }
-  ],
-  "education": [
-    {
-      "institution": "IIT BHU (Varanasi)",
-      "degree": "B.Tech",
-      "field": "Computer Science & Engineering",
-      "startYear": 2020,
-      "endYear": 2024,
-      "logo": "",
-      "highlights": [
-        "Graduated from one of India's premier technical institutions",
-        "Strong foundation in algorithms, data structures, and systems programming"
-      ]
-    }
-  ],
+  "featured": false
+}
+],
+"experience": [
+  {
+    "company": "AQR Capital Management",
+    "role": "Software Developer",
+    "startDate": "2024-07",
+    "endDate": null,
+    "logo": "",
+    "description": "Software Developer at AQR Capital building enterprise-scale systems, automation platforms, compliance tooling, and high-performance data workflows for one of the world's leading quantitative investment firms.",
+    "highlights": [
+      "Re-architected an intraday instrument loading pipeline from stored procedures to an event-driven architecture, achieving a 10x improvement in processing speed and data freshness.",
+      "Built reconciliation systems for pre-trade validation to automatically detect anomalies across internal and external platforms.",
+      "Reduced external service calls by 50% through intelligent caching mechanisms in compliance workflows.",
+      "Designed a unified reporting framework that automated generation of multiple post-trade compliance reports.",
+      "Built business-facing dashboards that reduced dependency on engineering teams by over 90%."
+    ]
+  }
+],
+"education": [
+  {
+    "institution": "Indian Institute of Technology (BHU), Varanasi",
+    "degree": "Bachelor of Technology",
+    "field": "Electrical Engineering",
+    "startYear": 2020,
+    "endYear": 2024,
+    "logo": "",
+    "highlights": [
+      "CGPA: 9.0/10",
+      "Built multiple software products and SaaS applications during undergraduate studies.",
+      "Active participant in competitive programming and technical communities.",
+      "Led engineering initiatives across student organizations and product teams."
+    ]
+  }
+],
   "blogs": [
-    {
-      "title": "Sample Blog Post Title",
-      "summary": "A placeholder blog post. Add your actual blog posts with links to Medium, Hashnode, or wherever you publish.",
-      "url": "https://medium.com",
-      "platform": "medium",
-      "publishedAt": "2025-01-01",
-      "tags": ["Technology", "Engineering"]
-    }
+
   ],
+  "sectionSubtitles": {
+    "skills": {
+      "muted": "I don't commit to stacks, ",
+      "highlight": "I commit to outcomes. If it can be built, I'll figure it out."
+    },
+    "products": {
+      "muted": "Ideas are infinite, ",
+      "highlight": "the fun part was shipping them to real people."
+    },
+    "projects": {
+      "muted": "Built to explore, experiment, and learn",
+      "highlight": ""
+    },
+    "background": {
+      "muted": "The people, places, and experiences that shaped me, ",
+      "highlight": "one lesson at a time."
+    },
+    "blogs": {
+      "muted": "Mostly notes from my journey through technology and life. ",
+      "highlight": "Shared in case they make someone's journey a little easier."
+    },
+    "contact": {
+      "muted": "Got an idea, a question, or just want to say hi —",
+      "highlight": "I'm always up for a good conversation."
+    }
+  },
   "contact": {
     "email": "psriraj1902@gmail.com",
     "socials": [
-      { "platform": "github", "label": "Sriraj-dev", "url": "https://github.com/Sriraj-dev" },
-      { "platform": "linkedin", "label": "LinkedIn", "url": "https://linkedin.com/in/sriraj" },
-      { "platform": "twitter", "label": "Twitter", "url": "https://twitter.com/sriraj" }
+      { "platform": "linkedin",  "label": "LinkedIn",  "url": "https://www.linkedin.com/in/sriraj-palakurthi-ab86061bb/" },
+      { "platform": "whatsapp",  "label": "WhatsApp",  "url": "https://wa.me/918074821478" },
+      { "platform": "github",    "label": "GitHub",    "url": "https://github.com/Sriraj-dev" },
+      { "platform": "instagram", "label": "Instagram", "url": "https://www.instagram.com/i_am_sriraj/" }
     ]
   }
 }

@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
-import type { SaasProduct } from "@/lib/types";
+import type { SaasProduct, SectionSubtitle } from "@/lib/types";
 
 function getYouTubeId(url: string): string | null {
   const short = url.match(/youtu\.be\/([^?&]+)/);
@@ -29,6 +29,7 @@ function buildYouTubeEmbed(id: string): string {
 
 interface SaasProductsProps {
   products: SaasProduct[];
+  subtitle?: SectionSubtitle;
 }
 
 const statusVariant: Record<SaasProduct["status"], "success" | "warning" | "accent"> = {
@@ -43,14 +44,14 @@ const statusDot: Record<SaasProduct["status"], string> = {
   building: "bg-[var(--accent)]",
 };
 
-export default function SaasProducts({ products }: SaasProductsProps) {
+export default function SaasProducts({ products, subtitle }: SaasProductsProps) {
   if (products.length === 0) return null;
 
   return (
     <section id="products" className="py-24 px-4 sm:px-6 bg-[var(--bg-surface)]">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <SectionHeading title="Products" subtitle="Things I've built and shipped" />
+          <SectionHeading title="Products" description={subtitle} />
         </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

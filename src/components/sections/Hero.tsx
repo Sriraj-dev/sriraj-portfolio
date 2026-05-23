@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Download, ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { Download, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import type { Intro, Meta } from "@/lib/types";
 
 interface HeroProps {
@@ -40,7 +41,18 @@ export default function Hero({ intro, meta }: HeroProps) {
       />
 
       {/* ── Mobile layout: single centered column ── */}
-      <div className="md:hidden relative max-w-3xl mx-auto w-full text-center">
+      <div className="md:hidden relative max-w-3xl mx-auto w-full text-center pt-20">
+        {meta.avatar && (
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Avatar src={meta.avatar} name={intro.name} size={158} />
+          </motion.div>
+        )}
+
         <motion.p
           className="font-mono text-xs sm:text-sm tracking-[0.22em] uppercase text-[var(--text-muted)] mb-7"
           initial={{ opacity: 0, y: 12 }}
@@ -52,8 +64,8 @@ export default function Hero({ intro, meta }: HeroProps) {
         </motion.p>
 
         <motion.h1
-          className="gradient-text text-[clamp(4rem,14vw,9rem)] leading-[0.9] font-black tracking-tight mb-8"
-          style={{ fontFamily: "var(--font-syne), sans-serif" }}
+          className="gradient-text text-[clamp(3rem,11vw,7rem)] leading-[0.9] font-black tracking-tight mb-8"
+          style={{ fontFamily: "var(--font-outfit), sans-serif" }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.28, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -82,14 +94,7 @@ export default function Hero({ intro, meta }: HeroProps) {
           </AnimatePresence>
         </motion.div>
 
-        <motion.p
-          className="text-[var(--text-muted)] text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.62, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {intro.bio}
-        </motion.p>
+        <MobileBio bio={intro.bio} />
 
         <motion.div
           className="flex flex-col sm:flex-row gap-3 justify-center"
@@ -106,6 +111,17 @@ export default function Hero({ intro, meta }: HeroProps) {
 
         {/* Left: identity */}
         <div className="flex-none w-[42%]">
+          {meta.avatar && (
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Avatar src={meta.avatar} name={intro.name} size={200} />
+            </motion.div>
+          )}
+
           <motion.p
             className="font-mono text-sm tracking-[0.22em] uppercase text-[var(--text-muted)] mb-7"
             initial={{ opacity: 0, y: 12 }}
@@ -117,8 +133,8 @@ export default function Hero({ intro, meta }: HeroProps) {
           </motion.p>
 
           <motion.h1
-            className="gradient-text text-[clamp(3rem,6vw,5.5rem)] leading-[0.88] font-black tracking-tight mb-8"
-            style={{ fontFamily: "var(--font-syne), sans-serif" }}
+            className="gradient-text text-[clamp(2rem,4.5vw,4.2rem)] leading-[0.88] font-black tracking-tight mb-8"
+            style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -157,76 +173,91 @@ export default function Hero({ intro, meta }: HeroProps) {
           </motion.div>
         </div>
 
-        {/* Right: bio as prominent statement with tilt */}
-        <TiltBio bio={intro.bio} />
+        {/* Right: bio */}
+        <motion.div
+          className="flex-1"
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.45, duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* Thin accent rule at top */}
+          <div
+            className="w-10 h-px mb-6"
+            style={{ background: "linear-gradient(to right, var(--accent), transparent)" }}
+          />
+          <div className="space-y-4">
+            {intro.bio.split("\n\n").map((para, i) => (
+              <p
+                key={i}
+                className="text-[var(--text-primary)] text-sm lg:text-base leading-relaxed font-light pl-4 border-l border-[var(--accent)] opacity-80 hover:opacity-100 transition-opacity"
+                style={{ borderColor: "rgba(99,102,241,0.25)" }}
+              >
+                {para}
+              </p>
+            ))}
+          </div>
+        </motion.div>
 
       </div>
 
-      {/* Scroll indicator */}
-      <motion.button
-        onClick={() =>
-          document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })
-        }
-        aria-label="Scroll down"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors group"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 0.6 }}
-      >
-        <span className="font-mono text-[10px] tracking-[0.2em] uppercase opacity-60 group-hover:opacity-100 transition-opacity">
-          scroll
-        </span>
-        <ChevronDown size={18} className="animate-bounce" />
-      </motion.button>
     </section>
   );
 }
 
-function TiltBio({ bio }: { bio: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-  const springX = useSpring(rotateX, { stiffness: 180, damping: 22 });
-  const springY = useSpring(rotateY, { stiffness: 180, damping: 22 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    rotateY.set((x - 0.5) * 14);
-    rotateX.set((0.5 - y) * 9);
-  };
-
-  const handleMouseLeave = () => {
-    rotateX.set(0);
-    rotateY.set(0);
-  };
+function MobileBio({ bio }: { bio: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const paragraphs = bio.split("\n\n");
+  const visible = expanded ? paragraphs : [paragraphs[0]];
 
   return (
     <motion.div
-      ref={ref}
-      className="flex-1 cursor-default"
-      style={{ rotateX: springX, rotateY: springY, transformPerspective: 900 }}
-      initial={{ opacity: 0, x: 24 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.45, duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      className="max-w-xl mx-auto mb-10 text-left"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.62, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div
-        className="text-[7rem] leading-[0.7] font-black text-[var(--accent)] opacity-20 mb-2 select-none"
-        aria-hidden="true"
-        style={{ fontFamily: "var(--font-syne), sans-serif" }}
-      >
-        "
+      <div className="space-y-3">
+        {visible.map((para, i) => (
+          <p key={i} className="text-[var(--text-muted)] text-sm sm:text-base leading-relaxed">
+            {para}
+          </p>
+        ))}
       </div>
-      <p className="text-[var(--text-primary)] text-xl lg:text-2xl leading-relaxed font-light">
-        {bio}
-      </p>
+      {paragraphs.length > 1 && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="mt-3 font-mono text-xs text-[var(--accent)] hover:opacity-80 transition-opacity"
+        >
+          {expanded ? "View Less ↑" : "View More ↓"}
+        </button>
+      )}
     </motion.div>
   );
 }
+
+function Avatar({ src, name, size }: { src: string; name: string; size: number }) {
+  return (
+    <div
+      className="rounded-full p-[2.5px] inline-block"
+      style={{
+        background: "linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%)",
+        boxShadow: "0 0 24px rgba(99,102,241,0.25)",
+      }}
+    >
+      <div className="rounded-full overflow-hidden bg-[var(--bg-primary)]" style={{ width: size, height: size }}>
+        <Image
+          src={src}
+          alt={name}
+          width={size}
+          height={size}
+          className="object-cover w-full h-full"
+          priority
+        />
+      </div>
+    </div>
+  );
+}
+
 
 function CTAButtons({
   intro,

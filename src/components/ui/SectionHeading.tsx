@@ -1,9 +1,15 @@
+interface SectionSubtitle {
+  muted: string;
+  highlight: string;
+}
+
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
+  description?: SectionSubtitle;
 }
 
-export default function SectionHeading({ title, subtitle }: SectionHeadingProps) {
+export default function SectionHeading({ title, subtitle, description }: SectionHeadingProps) {
   return (
     <div className="mb-12">
       {subtitle && (
@@ -18,6 +24,12 @@ export default function SectionHeading({ title, subtitle }: SectionHeadingProps)
         {title}
       </h2>
       <span className="accent-line" />
+      {description && (
+        <p className="mt-5 text-sm sm:text-base leading-relaxed">
+          <span className="text-[var(--text-muted)]">{description.muted} </span>
+          <span className="text-[var(--text-primary)]">{description.highlight}</span>
+        </p>
+      )}
     </div>
   );
 }
