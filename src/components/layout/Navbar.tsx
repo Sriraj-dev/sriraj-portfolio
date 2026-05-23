@@ -15,6 +15,11 @@ const NAV_LINKS = [
   { label: "Contact",    href: "#contact" },
 ];
 
+// Logo covers "About", Contact is a separate CTA — pill shows the rest
+const PILL_LINKS = NAV_LINKS.filter(
+  (l) => l.href !== "#hero" && l.href !== "#contact"
+);
+
 const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace("#", ""));
 
 export default function Navbar({ name }: { name: string }) {
@@ -35,14 +40,9 @@ export default function Navbar({ name }: { name: string }) {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[var(--bg-primary)]/75 backdrop-blur-xl border-b border-[var(--border-color)]"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
         {/* Logo */}
         <button
           onClick={() => handleNavClick("#hero")}
@@ -54,43 +54,60 @@ export default function Navbar({ name }: { name: string }) {
           <span className="text-[var(--accent)]"> /&gt;</span>
         </button>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1">
-          {NAV_LINKS.map((link) => {
-            const id = link.href.replace("#", "");
-            const isActive = activeId === id;
-            return (
-              <li key={link.href} className="relative">
-                <button
-                  onClick={() => handleNavClick(link.href)}
-                  className={`relative px-3 py-1.5 text-sm transition-colors rounded-md ${
-                    isActive
-                      ? "text-[var(--text-primary)]"
-                      : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 rounded-md bg-[var(--bg-elevated)] border border-[var(--border-bright)]"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{link.label}</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Toggle menu"
+        {/* Floating pill — desktop only */}
+        <div
+          className={`hidden md:block rounded-full transition-all duration-500 ${
+            scrolled
+              ? "border border-[var(--border-color)] bg-[var(--bg-primary)]/70 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.4),0_0_0_1px_rgba(99,102,241,0.07)]"
+              : "border border-transparent"
+          }`}
         >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          <ul className="flex items-center gap-0.5 px-2 py-1.5">
+            {PILL_LINKS.map((link) => {
+              const id = link.href.replace("#", "");
+              const isActive = activeId === id;
+              return (
+                <li key={link.href} className="relative">
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    className={`relative px-3 py-1.5 text-sm rounded-full transition-colors duration-200 ${
+                      isActive
+                        ? "text-[var(--text-primary)]"
+                        : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        className="absolute inset-0 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-bright)]"
+                        transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                      />
+                    )}
+                    <span className="relative z-10">{link.label}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        {/* Right: Contact CTA + mobile toggle */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => handleNavClick("#contact")}
+            className="hidden md:block px-4 py-1.5 rounded-full text-sm font-medium border border-[var(--border-bright)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 hover:shadow-[0_0_16px_rgba(99,102,241,0.25)]"
+          >
+            Contact
+          </button>
+
+          <button
+            className="md:hidden text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}

@@ -2,27 +2,28 @@
 
 import { useState } from "react";
 import { Copy, Check, Mail } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
-import type { Contact as ContactType } from "@/lib/types";
+import type { Contact as ContactType, SectionSubtitle } from "@/lib/types";
 
 interface ContactProps {
   contact: ContactType;
+  subtitle?: SectionSubtitle;
 }
 
 const socialConfig: Record<
   string,
   { icon: React.ComponentType<{ size?: number }>; hoverColor: string }
 > = {
-  github:    { icon: FaGithub,    hoverColor: "#e2e8f0" },
   linkedin:  { icon: FaLinkedin,  hoverColor: "#0a66c2" },
-  twitter:   { icon: FaTwitter,   hoverColor: "#1d9bf0" },
+  whatsapp:  { icon: FaWhatsapp,  hoverColor: "#25d366" },
+  github:    { icon: FaGithub,    hoverColor: "#e2e8f0" },
   instagram: { icon: FaInstagram, hoverColor: "#e1306c" },
 };
 
-export default function Contact({ contact }: ContactProps) {
+export default function Contact({ contact, subtitle }: ContactProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -44,12 +45,11 @@ export default function Contact({ contact }: ContactProps) {
 
       <div className="relative max-w-2xl mx-auto text-center">
         <AnimatedSection>
-          <SectionHeading title="Get In Touch" subtitle="Let's connect" />
+          <SectionHeading title="Get In Touch" description={subtitle} />
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
           <p className="text-[var(--text-muted)] text-base mb-10 leading-relaxed">
-            Whether you want to collaborate, discuss opportunities, or just say hi — my inbox is always open.
           </p>
         </AnimatedSection>
 

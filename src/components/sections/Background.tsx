@@ -1,11 +1,12 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Briefcase, GraduationCap } from "lucide-react";
-import type { Experience, Education } from "@/lib/types";
+import type { Experience, Education, SectionSubtitle } from "@/lib/types";
 
 interface BackgroundProps {
   experience: Experience[];
   education:  Education[];
+  subtitle?: SectionSubtitle;
 }
 
 function formatDate(s: string | null): string {
@@ -17,12 +18,12 @@ function formatDate(s: string | null): string {
   });
 }
 
-export default function Background({ experience, education }: BackgroundProps) {
+export default function Background({ experience, education, subtitle }: BackgroundProps) {
   return (
-    <section id="background" className="py-24 px-4 sm:px-6 bg-[var(--bg-surface)]">
+    <section id="background" className="py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <SectionHeading title="Background" subtitle="Experience & Education" />
+          <SectionHeading title="Background" description={subtitle} />
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
